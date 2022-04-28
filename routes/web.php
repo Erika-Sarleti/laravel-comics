@@ -14,5 +14,21 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('welcome');
-});
+    return view('home');
+})->name('home');
+
+Route::get('/comics', function() {
+    $comics = config('myarr.comics');
+    $data = [
+        'comics' => $comics
+    ];
+    return view('comics', $data);
+})->name('comics');
+
+Route::get('/characters', function() {
+    return view('character');
+})->name('characters');
+
+Route::get('/movies', function() {
+    return view('movie');
+})->name('movies');
